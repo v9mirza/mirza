@@ -1,0 +1,51 @@
+/* Theme styles */
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark .navbar {
+    background-color: #222 !important;
+}
+
+body.dark .navbar-light .navbar-nav .nav-link {
+    color: #fff;
+}
+
+body.dark .bg-light {
+    background-color: #444 !important;
+}
+
+body.dark .card {
+    background-color: #555;
+    color: #fff;
+}
+
+/* Hover effects */
+.btn:hover,
+.card:hover {
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+}
+
+
