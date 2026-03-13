@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hassan Mirza | Full-Stack Developer</title>
     <meta name="description"
-        content="Hassan Mirza - Software Developer & System Architect focusing on simplicity, performance, and robust system design.">
+        content="Hassan Mirza - Full-Stack Developer and intern building systems like Resumex and LazyPorts with a focus on simplicity, performance, and robust design.">
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://github.com/v9mirza.png">
@@ -15,7 +15,7 @@
     <meta property="og:type" content="website">
     <meta property="og:title" content="Hassan Mirza | Full-Stack Developer">
     <meta property="og:description"
-        content="Software Developer & System Architect focusing on simplicity, performance, and robust system design.">
+        content="Full-Stack Developer & intern building production-style web apps and developer tools like Resumex and LazyPorts.">
     <meta property="og:image" content="https://github.com/v9mirza.png">
 
     <!-- Tailwind CSS CDN -->
@@ -25,6 +25,12 @@
 
     <link rel="stylesheet" href="style.css">
     <!-- Tailor-made CSS for Modern Aesthetics -->
+    <style>
+        .focus-ring:focus-visible {
+            outline: 2px solid #58a6ff;
+            outline-offset: 2px;
+        }
+    </style>
 </head>
 
 <body
@@ -87,29 +93,31 @@
         <div class="max-w-5xl mx-auto px-6">
             <div class="flex items-center justify-between h-16">
                 <a href="#"
-                    class="text-[#c9d1d9] font-semibold tracking-tight text-lg hover:text-[#58a6ff] transition-colors">
+                    class="focus-ring text-[#c9d1d9] font-semibold tracking-tight text-lg hover:text-[#58a6ff] transition-colors">
                     Hassan Mirza
                 </a>
 
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#about"
-                        class="text-sm text-[#8b949e] hover:text-[#c9d1d9] transition-colors duration-200">About</a>
+                        class="focus-ring text-sm text-[#8b949e] hover:text-[#c9d1d9] transition-colors duration-200">About</a>
+                    <a href="#experience"
+                        class="focus-ring text-sm text-[#8b949e] hover:text-[#c9d1d9] transition-colors duration-200">Experience</a>
                     <a href="#skills"
-                        class="text-sm text-[#8b949e] hover:text-[#c9d1d9] transition-colors duration-200">Skills</a>
+                        class="focus-ring text-sm text-[#8b949e] hover:text-[#c9d1d9] transition-colors duration-200">Skills</a>
                     <a href="#portfolio"
-                        class="text-sm text-[#8b949e] hover:text-[#c9d1d9] transition-colors duration-200">Projects</a>
+                        class="focus-ring text-sm text-[#8b949e] hover:text-[#c9d1d9] transition-colors duration-200">Projects</a>
                     <a href="#contact"
-                        class="text-sm text-[#8b949e] hover:text-[#c9d1d9] transition-colors duration-200">Contact</a>
+                        class="focus-ring text-sm text-[#8b949e] hover:text-[#c9d1d9] transition-colors duration-200">Contact</a>
 
                     <!-- Resume Link -->
-                    <a href="/assets/mirza-resume.pdf" target="_blank" rel="noopener noreferrer"
-                        class="text-sm font-mono text-white bg-white/10 border border-white/10 px-5 py-2 rounded-full hover:bg-white/20 hover:border-white/30 transition-all duration-300 font-medium tracking-wide backdrop-blur-md">
+                    <a href="/assets/mirza-resume-fsd.pdf" target="_blank" rel="noopener noreferrer"
+                        class="focus-ring text-sm font-mono text-white bg-white/10 border border-white/10 px-5 py-2 rounded-full hover:bg-white/20 hover:border-white/30 transition-all duration-300 font-medium tracking-wide backdrop-blur-md">
                         Resume
                     </a>
 
                     <!-- Command Palette Trigger -->
                     <button onclick="toggleCmdPalette()"
-                        class="hidden lg:flex items-center gap-2 text-xs font-mono text-[#8b949e] bg-white/5 border border-white/10 px-3 py-1.5 rounded-full hover:bg-white/10 hover:border-white/20 transition-all group backdrop-blur-sm cursor-pointer">
+                        class="focus-ring hidden lg:flex items-center gap-2 text-xs font-mono text-[#8b949e] bg-white/5 border border-white/10 px-3 py-1.5 rounded-full hover:bg-white/10 hover:border-white/20 transition-all group backdrop-blur-sm cursor-pointer">
                         <svg class="w-3.5 h-3.5 opacity-60 group-hover:opacity-100 transition-opacity" fill="none"
                             viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -143,12 +151,13 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden border-b border-[#30363d] glass">
             <div class="px-6 py-4 space-y-3">
-                <a href="#about" class="block text-sm text-neutral-400 hover:text-white">About</a>
-                <a href="#skills" class="block text-sm text-neutral-400 hover:text-white">Skills</a>
-                <a href="#portfolio" class="block text-sm text-neutral-400 hover:text-white">Projects</a>
-                <a href="#contact" class="block text-sm text-[#8b949e] hover:text-[#c9d1d9]">Contact</a>
-                <a href="/assets/mirza-resume.pdf  " target="_blank" rel="noopener noreferrer"
-                    class="block w-full text-center mt-4 text-sm font-mono text-white bg-white/10 border border-white/10 px-5 py-2 rounded-full hover:bg-white/20 hover:border-white/30 transition-all duration-300 font-medium tracking-wide backdrop-blur-md">
+                <a href="#about" class="focus-ring block text-sm text-neutral-400 hover:text-white">About</a>
+                <a href="#experience" class="focus-ring block text-sm text-neutral-400 hover:text-white">Experience</a>
+                <a href="#skills" class="focus-ring block text-sm text-neutral-400 hover:text-white">Skills</a>
+                <a href="#portfolio" class="focus-ring block text-sm text-neutral-400 hover:text-white">Projects</a>
+                <a href="#contact" class="focus-ring block text-sm text-[#8b949e] hover:text-[#c9d1d9]">Contact</a>
+                <a href="/assets/mirza-resume-fsd.pdf" target="_blank" rel="noopener noreferrer"
+                    class="focus-ring block w-full text-center mt-4 text-sm font-mono text-white bg-white/10 border border-white/10 px-5 py-2 rounded-full hover:bg-white/20 hover:border-white/30 transition-all duration-300 font-medium tracking-wide backdrop-blur-md">
                     Resume
                 </a>
             </div>
@@ -196,7 +205,7 @@
 
             <div class="flex items-center justify-center gap-6">
                 <a href="#portfolio"
-                    class="group flex items-center text-white font-mono font-medium hover:text-cyan-400 transition-colors border-b border-white hover:border-cyan-400 pb-0.5">
+                    class="focus-ring group flex items-center text-white font-mono font-medium hover:text-cyan-400 transition-colors border-b border-white hover:border-cyan-400 pb-0.5">
                     View work
                     <svg class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
@@ -204,7 +213,8 @@
                             d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                 </a>
-                <a href="mailto:v9mirza@proton.me" class="text-[#8b949e] hover:text-[#c9d1d9] transition-colors">
+                <a href="mailto:v9mirza@proton.me"
+                    class="focus-ring text-[#8b949e] hover:text-[#c9d1d9] transition-colors">
                     Get in touch
                 </a>
             </div>
@@ -216,7 +226,7 @@
         ABOUT SECTION
         Two-column layout on desktop, minimalist text.
     -->
-    <section id="about" class="py-24 border-t border-[#30363d] reveal">
+    <section id="about" class="py-20 md:py-24 border-t border-[#30363d] reveal">
         <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-2 gap-16">
             <div>
                 <h2 class="text-lg font-mono font-semibold text-[#c9d1d9] uppercase tracking-widest mb-2">About</h2>
@@ -244,28 +254,28 @@
 
                 <div class="pt-6 flex gap-6 items-center">
                     <a href="https://github.com/v9mirza" target="_blank" rel="noopener noreferrer"
-                        class="text-[#8b949e] hover:text-[#c9d1d9] transition-colors" aria-label="GitHub">
+                        class="focus-ring text-[#8b949e] hover:text-[#c9d1d9] transition-colors" aria-label="GitHub">
                         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                         </svg>
                     </a>
                     <a href="https://linkedin.com/in/v9mirza" target="_blank" rel="noopener noreferrer"
-                        class="text-[#8b949e] hover:text-[#c9d1d9] transition-colors" aria-label="LinkedIn">
+                        class="focus-ring text-[#8b949e] hover:text-[#c9d1d9] transition-colors" aria-label="LinkedIn">
                         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                         </svg>
                     </a>
                     <a href="https://twitter.com/v9mirza" target="_blank" rel="noopener noreferrer"
-                        class="text-[#8b949e] hover:text-[#c9d1d9] transition-colors" aria-label="Twitter">
+                        class="focus-ring text-[#8b949e] hover:text-[#c9d1d9] transition-colors" aria-label="Twitter">
                         <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                         </svg>
                     </a>
                     <a href="https://mirzalog.hashnode.dev/" target="_blank" rel="noopener noreferrer"
-                        class="text-[#8b949e] hover:text-[#c9d1d9] transition-colors" aria-label="Blog">
+                        class="focus-ring text-[#8b949e] hover:text-[#c9d1d9] transition-colors" aria-label="Blog">
                         <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
@@ -277,46 +287,96 @@
     </section>
 
     <!-- 
-        SKILLS SECTION
-        Simple list with subtle separation. No heavy cards.
+        EXPERIENCE SECTION
+        Single-role timeline style.
     -->
-    <section id="skills" class="py-24 border-t border-[#30363d] reveal">
+    <section id="experience" class="py-20 md:py-24 border-t border-[#30363d] reveal">
+        <div class="max-w-5xl mx-auto px-6 grid md:grid-cols-[1fr,2fr] gap-16">
+            <div>
+                <h2 class="text-lg font-mono font-semibold text-[#c9d1d9] uppercase tracking-widest mb-2">Experience</h2>
+            </div>
+            <div>
+                <div class="mb-4">
+                    <p class="text-sm font-mono text-[#8b949e] uppercase tracking-[0.18em] mb-1">
+                        Full-Stack Developer Intern
+                    </p>
+                    <p class="text-[#c9d1d9] text-base">
+                        Weproz Tech, Lucknow IN
+                        <span class="text-xs font-mono text-[#6e7681] ml-2">(Feb 2026 – Present)</span>
+                    </p>
+                </div>
+                <ul class="space-y-2 text-sm text-[#8b949e] leading-relaxed list-disc pl-5">
+                    <li>
+                        Develop and maintain MERN applications end‑to‑end — from React frontends to Express/Node.js
+                        APIs and MongoDB data models.
+                    </li>
+                    <li>
+                        Design and ship REST endpoints with JWT‑based authentication and role‑aware access control for
+                        secure, multi-user features.
+                    </li>
+                    <li>
+                        Build responsive, component-driven React UIs and integrate them with backend workflows for
+                        smooth, production-style user journeys.
+                    </li>
+                    <li>
+                        Containerize and deploy services using Docker on Linux, contributing to reproducible dev and
+                        staging environments.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 
+        SKILLS SECTION
+        Curated pillars instead of a flat list.
+    -->
+    <section id="skills" class="py-20 md:py-24 border-t border-[#30363d] reveal">
         <div class="max-w-5xl mx-auto px-6">
-            <h2 class="text-lg font-mono font-semibold text-white uppercase tracking-widest mb-12">Expertise</h2>
+            <h2 class="text-lg font-mono font-semibold text-white uppercase tracking-widest mb-4">Expertise</h2>
+            <p class="text-sm text-[#8b949e] max-w-2xl mb-12">
+                I work across the stack: from typed JavaScript backends and React frontends to Linux-first tooling and
+                deployment. The focus is always on clear boundaries, observability, and systems that are easy to debug.
+            </p>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
-                <!-- 1️⃣ Core Languages -->
+                <!-- 1️⃣ Languages & Runtime -->
                 <div class="group border-l border-slate-800 pl-6 hover:border-slate-500 transition-all duration-300">
-                    <h3 class="text-white font-mono font-medium mb-4 text-sm uppercase tracking-wider">Core Languages
+                    <h3 class="text-white font-mono font-medium mb-4 text-sm uppercase tracking-wider">
+                        Languages & Runtime
                     </h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="tech-pill font-mono text-[#8b949e]">JavaScript / TypeScript</span>
+                        <span class="tech-pill font-mono text-[#8b949e]">Node.js</span>
                         <span class="tech-pill font-mono text-[#8b949e]">Python</span>
                         <span class="tech-pill font-mono text-[#8b949e]">C / C++</span>
                     </div>
                 </div>
 
-                <!-- 2️⃣ Software Engineering -->
+                <!-- 2️⃣ Web & APIs -->
                 <div class="group border-l border-slate-800 pl-6 hover:border-slate-500 transition-all duration-300">
-                    <h3 class="text-white font-mono font-medium mb-4 text-sm uppercase tracking-wider">Software
-                        Engineering</h3>
+                    <h3 class="text-white font-mono font-medium mb-4 text-sm uppercase tracking-wider">
+                        Web & APIs
+                    </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="tech-pill font-mono text-[#8b949e]">Node.js (Express)</span>
                         <span class="tech-pill font-mono text-[#8b949e]">React</span>
-                        <span class="tech-pill font-mono text-[#8b949e]">REST APIs</span>
-                        <span class="tech-pill font-mono text-[#8b949e]">MySQL / MongoDB</span>
+                        <span class="tech-pill font-mono text-[#8b949e]">Express</span>
+                        <span class="tech-pill font-mono text-[#8b949e]">REST API Design</span>
                         <span class="tech-pill font-mono text-[#8b949e]">Authentication (JWT)</span>
+                        <span class="tech-pill font-mono text-[#8b949e]">Role-based Access</span>
                     </div>
                 </div>
 
-                <!-- 3️⃣ Infrastructure & DevOps -->
+                <!-- 3️⃣ Data & Infrastructure -->
                 <div class="group border-l border-slate-800 pl-6 hover:border-slate-500 transition-all duration-300">
-                    <h3 class="text-white font-mono font-medium mb-4 text-sm uppercase tracking-wider">Infrastructure &
-                        DevOps
+                    <h3 class="text-white font-mono font-medium mb-4 text-sm uppercase tracking-wider">
+                        Data & Infrastructure
                     </h3>
                     <div class="flex flex-wrap gap-2">
+                        <span class="tech-pill font-mono text-[#8b949e]">MongoDB / MySQL</span>
+                        <span class="tech-pill font-mono text-[#8b949e]">Schema Design</span>
                         <span class="tech-pill font-mono text-[#8b949e]">Linux</span>
-                        <span class="tech-pill font-mono text-[#8b949e]">Docker / K8s</span>
+                        <span class="tech-pill font-mono text-[#8b949e]">Docker</span>
                         <span class="tech-pill font-mono text-[#8b949e]">Cloud Deployment</span>
                         <span class="tech-pill font-mono text-[#8b949e]">Git & GitHub</span>
                     </div>
@@ -324,11 +384,13 @@
 
                 <!-- 4️⃣ Tools & Craft -->
                 <div class="group border-l border-slate-800 pl-6 hover:border-slate-500 transition-all duration-300">
-                    <h3 class="text-white font-mono font-medium mb-4 text-sm uppercase tracking-wider">Tools & Craft
+                    <h3 class="text-white font-mono font-medium mb-4 text-sm uppercase tracking-wider">
+                        Tools & Craft
                     </h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="tech-pill font-mono text-[#8b949e]">Shell Scripting</span>
-                        <span class="tech-pill font-mono text-[#8b949e]">Postman</span>
+                        <span class="tech-pill font-mono text-[#8b949e]">Terminal Tooling (LazyPorts, FetchX)</span>
+                        <span class="tech-pill font-mono text-[#8b949e]">Testing & Debugging</span>
                         <span class="tech-pill font-mono text-[#8b949e]">Technical Writing</span>
                         <span class="tech-pill font-mono text-[#8b949e]">Figma</span>
                     </div>
@@ -351,25 +413,33 @@
                 <div
                     class="group block md:flex justify-between items-start border-b border-neutral-800 pb-12 reveal glass-card p-6 -mx-6 rounded-2xl">
                     <div class="max-w-2xl">
+                        <span
+                            class="inline-flex items-center px-2 py-0.5 mb-2 rounded-full border border-white/10 text-[10px] font-mono uppercase tracking-[0.18em] text-[#8b949e]">
+                            Full-Stack App • Resume Builder
+                        </span>
                         <h3
                             class="text-xl text-[#c9d1d9] font-medium mb-2 group-hover:text-[#58a6ff] transition-colors">
                             Resumex</h3>
                         <p class="text-[#8b949e] mb-4 leading-relaxed">
-                            A web-based resume editor that enforces structure and readable information flow.
-                            Designed to make experience easy to scan, evaluate, and understand.
+                            Full-stack resume builder for creating professional, ATS-friendly resumes in minutes, with a
+                            clean layout that hiring managers can scan quickly.
+                        </p>
+                        <p class="text-[#8b949e] mb-4 leading-relaxed">
+                            Ships a real-time editor with instant preview, multiple templates, secure JWT-based
+                            accounts, and PDF export plus a dashboard for managing resumes.
                         </p>
                         <div class="flex gap-3 text-xs text-[#8b949e] font-mono uppercase">
-                            <span>React / Vite</span>
+                            <span>React</span>
+                            <span>Node.js</span>
                             <span>Express</span>
-                            <span>Node.JS</span>
-                            <span>Mongo DB</span>
+                            <span>MongoDB</span>
                             <span>REST API</span>
-                            <span>JWT bcrypt</span>
+                            <span>JWT</span>
                         </div>
                     </div>
                     <div class="mt-6 md:mt-0">
                         <a href="https://github.com/v9mirza/Resumex" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center text-sm font-mono text-[#c9d1d9] border border-[#30363d] px-4 py-2 rounded-full hover:bg-[#c9d1d9] hover:text-[#0d1117] transition-all">
+                            class="focus-ring inline-flex items-center text-sm font-mono text-[#c9d1d9] border border-[#30363d] px-4 py-2 rounded-full hover:bg-[#c9d1d9] hover:text-[#0d1117] transition-all">
                             View Code
                         </a>
                     </div>
@@ -379,28 +449,33 @@
                 <div
                     class="group block md:flex justify-between items-start border-b border-[#30363d] pb-12 reveal glass-card p-6 -mx-6 rounded-2xl">
                     <div class="max-w-2xl">
+                        <span
+                            class="inline-flex items-center px-2 py-0.5 mb-2 rounded-full border border-white/10 text-[10px] font-mono uppercase tracking-[0.18em] text-[#8b949e]">
+                            Full-Stack Project
+                        </span>
                         <h3
                             class="text-xl text-[#c9d1d9] font-medium mb-2 group-hover:text-[#58a6ff] transition-colors">
                             E-commerce Platform</h3>
                         <p class="text-[#8b949e] mb-4 leading-relaxed">
-                            A production-style MERN e-commerce app implementing auth, products, carts, and orders with
-                            clean API boundaries and realistic data flows.
+                            Full-featured MERN e-commerce application with authentication, product catalog, cart,
+                            checkout, and order management modeled after real production flows.
+                        </p>
+                        <p class="text-[#8b949e] mb-4 leading-relaxed">
+                            Emphasizes clean API boundaries, protected routes, and persistent state so the frontend and
+                            backend remain loosely coupled but reliable under typical shop workloads.
                         </p>
                         <div class="flex gap-3 text-xs text-[#8b949e] font-mono uppercase">
                             <span>React</span>
                             <span>Node.js</span>
                             <span>Express</span>
                             <span>MongoDB</span>
-                            <span>JWT bcrypt</span>
+                            <span>JWT</span>
                             <span>REST API</span>
-                            <!-- <span>MVC Architecture</span> -->
-
-
                         </div>
                     </div>
                     <div class="mt-6 md:mt-0">
                         <a href="https://github.com/v9mirza/mern-ecommerce" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center text-sm font-mono text-[#c9d1d9] border border-[#30363d] px-4 py-2 rounded-full hover:bg-[#c9d1d9] hover:text-[#0d1117] transition-all">
+                            class="focus-ring inline-flex items-center text-sm font-mono text-[#c9d1d9] border border-[#30363d] px-4 py-2 rounded-full hover:bg-[#c9d1d9] hover:text-[#0d1117] transition-all">
                             View Code
                         </a>
                     </div>
@@ -410,23 +485,33 @@
                 <div
                     class="group block md:flex justify-between items-start border-b border-[#30363d] pb-12 reveal glass-card p-6 -mx-6 rounded-2xl">
                     <div class="max-w-2xl">
+                        <span
+                            class="inline-flex items-center px-2 py-0.5 mb-2 rounded-full border border-white/10 text-[10px] font-mono uppercase tracking-[0.18em] text-[#8b949e]">
+                            Team Project
+                        </span>
                         <h3
                             class="text-xl text-[#c9d1d9] font-medium mb-2 group-hover:text-[#58a6ff] transition-colors">
-                            FetchX</h3>
+                            Quiz Management System</h3>
                         <p class="text-[#8b949e] mb-4 leading-relaxed">
-                            A minimal, dependency-free system information tool designed to be fast, readable, and
-                            invisible.
+                            Role-based quiz platform with question banks, timed assessments, and automated scoring,
+                            built to support structured evaluation workflows.
+                        </p>
+                        <p class="text-[#8b949e] mb-4 leading-relaxed">
+                            Designed secure REST APIs and backend validation for reliable quiz evaluation, and worked
+                            within a structured team setup with clear module ownership.
                         </p>
                         <div class="flex gap-3 text-xs text-[#8b949e] font-mono uppercase">
-                            <span>Python</span>
-                            <span>Linux</span>
-                            <span>Standard Library</span>
-                            <span>Git</span>
+                            <span>MongoDB</span>
+                            <span>Node.js</span>
+                            <span>Express.js</span>
+                            <span>React.js</span>
+                            <span>JWT</span>
+                            <span>Socket.IO</span>
                         </div>
                     </div>
                     <div class="mt-6 md:mt-0">
-                        <a href="https://github.com/v9mirza/fetchx/" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center text-sm font-mono text-[#c9d1d9] border border-[#30363d] px-4 py-2 rounded-full hover:bg-[#c9d1d9] hover:text-[#0d1117] transition-all">
+                        <a href="https://github.com/v9mirza" target="_blank" rel="noopener noreferrer"
+                            class="focus-ring inline-flex items-center text-sm font-mono text-[#c9d1d9] border border-[#30363d] px-4 py-2 rounded-full hover:bg-[#c9d1d9] hover:text-[#0d1117] transition-all">
                             View Code
                         </a>
                     </div>
@@ -436,22 +521,32 @@
                 <div
                     class="group block md:flex justify-between items-start border-b border-[#30363d] pb-12 reveal glass-card p-6 -mx-6 rounded-2xl">
                     <div class="max-w-2xl">
+                        <span
+                            class="inline-flex items-center px-2 py-0.5 mb-2 rounded-full border border-white/10 text-[10px] font-mono uppercase tracking-[0.18em] text-[#8b949e]">
+                            Open Source • Dev Tool
+                        </span>
                         <h3
                             class="text-xl text-[#c9d1d9] font-medium mb-2 group-hover:text-[#58a6ff] transition-colors">
-                            CTRL Zone</h3>
+                            LazyPorts</h3>
                         <p class="text-[#8b949e] mb-4 leading-relaxed">
-                            An event-driven Chrome extension designed to enforce focus by controlling browsing behavior
-                            in real time.
+                            Visual port manager for Linux that provides an interactive terminal UI to inspect listening
+                            processes, filter ports, and kill blocking processes instantly.
+                        </p>
+                        <p class="text-[#8b949e] mb-4 leading-relaxed">
+                            Built with Go using Bubble Tea and Lipgloss, focusing on fast, zero-config workflows and
+                            clear visualization of TCP/UDP connections.
                         </p>
                         <div class="flex gap-3 text-xs text-[#8b949e] font-mono uppercase">
-                            <span>Electron</span>
-                            <span>Node.js</span>
-                            <span>System API</span>
+                            <span>Go</span>
+                            <span>Bubble Tea</span>
+                            <span>Lipgloss</span>
+                            <span>Linux</span>
+                            <span>Terminal UI</span>
                         </div>
                     </div>
                     <div class="mt-6 md:mt-0">
-                        <a href="https://github.com/v9mirza/ctrl-zone" target="_blank" rel="noopener noreferrer"
-                            class="inline-flex items-center text-sm font-mono text-[#c9d1d9] border border-[#30363d] px-4 py-2 rounded-full hover:bg-[#c9d1d9] hover:text-[#0d1117] transition-all">
+                        <a href="https://github.com/v9mirza/LazyPorts" target="_blank" rel="noopener noreferrer"
+                            class="focus-ring inline-flex items-center text-sm font-mono text-[#c9d1d9] border border-[#30363d] px-4 py-2 rounded-full hover:bg-[#c9d1d9] hover:text-[#0d1117] transition-all">
                             View Code
                         </a>
                     </div>
@@ -482,28 +577,28 @@
 
             <div class="mt-12 flex justify-center gap-6">
                 <a href="https://github.com/v9mirza" target="_blank" rel="noopener noreferrer"
-                    class="text-[#8b949e] hover:text-[#c9d1d9] transition-colors" aria-label="GitHub">
+                    class="focus-ring text-[#8b949e] hover:text-[#c9d1d9] transition-colors" aria-label="GitHub">
                     <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                     </svg>
                 </a>
                 <a href="https://linkedin.com/in/v9mirza" target="_blank" rel="noopener noreferrer"
-                    class="text-neutral-500 hover:text-white transition-colors" aria-label="LinkedIn">
+                    class="focus-ring text-neutral-500 hover:text-white transition-colors" aria-label="LinkedIn">
                     <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                     </svg>
                 </a>
                 <a href="https://twitter.com/v9mirza" target="_blank" rel="noopener noreferrer"
-                    class="text-neutral-500 hover:text-white transition-colors" aria-label="Twitter">
+                    class="focus-ring text-neutral-500 hover:text-white transition-colors" aria-label="Twitter">
                     <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                         <path
                             d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
                     </svg>
                 </a>
                 <a href="https://mirzalog.hashnode.dev/" target="_blank" rel="noopener noreferrer"
-                    class="text-[#8b949e] hover:text-[#c9d1d9] transition-colors" aria-label="Blog">
+                    class="focus-ring text-[#8b949e] hover:text-[#c9d1d9] transition-colors" aria-label="Blog">
                     <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />

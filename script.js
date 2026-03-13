@@ -161,10 +161,11 @@ const cmdResults = document.getElementById('cmd-results');
 
 const commands = [
     { name: 'Go to About', icon: 'User', action: () => window.location.href = '#about' },
+    { name: 'View Experience', icon: 'User', action: () => window.location.href = '#experience' },
     { name: 'View Projects', icon: 'Grid', action: () => window.location.href = '#portfolio' },
     { name: 'Check Skills', icon: 'Cpu', action: () => window.location.href = '#skills' },
     { name: 'Contact Me', icon: 'Mail', action: () => window.location.href = '#contact' },
-    { name: 'View Resume', icon: 'FileText', action: () => window.open('/assets/mirza-resume.pdf', '_blank') },
+    { name: 'View Resume', icon: 'FileText', action: () => window.open('/assets/mirza-resume-fsd.pdf', '_blank') },
     { name: 'GitHub Profile', icon: 'Github', action: () => window.open('https://github.com/v9mirza', '_blank') },
     {
         name: 'Copy Email', icon: 'Copy', action: () => {
@@ -212,7 +213,7 @@ function renderCommands(filterCommands) {
     }
 
     const html = filterCommands.map((cmd, index) => `
-        <button onclick="handleCommand(${index})" class="cmd-item w-full text-left px-4 py-3 mx-2 rounded-lg text-[#c9d1d9] hover:bg-white/5 hover:text-white flex items-center gap-3 transition-colors group">
+        <button onclick="handleCommand(${index})" class="cmd-item focus-ring w-full text-left px-4 py-3 mx-2 rounded-lg text-[#c9d1d9] hover:bg-white/5 hover:text-white flex items-center gap-3 transition-colors group">
             <span class="text-zinc-600 group-hover:text-[#58a6ff] transition-colors">
                 ${getIcon(cmd.icon)}
             </span>
