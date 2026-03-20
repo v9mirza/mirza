@@ -1,0 +1,56 @@
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+* {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --bg-main: #18181b;
+  --bg-card: #18181b;
+  --border-soft: #1f232b;
+  --text-main: #c0c5cf;
+  --text-muted: #7f8590;
+  --text-heading: #e8ebf0;
+  --accent: #d16d51;
+  --accent-soft: #d98973;
+}
+
+body {
+  @apply antialiased;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  font-family: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
+}
+
+#root {
+  background-color: var(--bg-main);
+}
+
+.font-title {
+  font-family: "Instrument Serif", ui-serif, Georgia, serif;
+}
+
+.text-heading {
+  color: var(--text-heading);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-accent-soft {
+  color: var(--accent-soft);
+}
+
+.border-soft {
+  border-color: var(--border-soft);
+}
+
+.bg-card {
+  background-color: var(--bg-card);
+}
