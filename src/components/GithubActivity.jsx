@@ -11,7 +11,7 @@ function GithubActivity() {
   })
 
   return (
-    <div className="border-soft bg-card rounded-md border p-3 md:p-4 transition-all duration-300 hover:-translate-y-[1px] hover:border-[#d98973]/50">
+    <div className="border-soft bg-card rounded-md border p-3 md:p-4 transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.005] hover:border-[#d98973]/50 hover:shadow-lg hover:shadow-[#d98973]/5">
       <div className="mb-2 flex justify-between text-[10px] uppercase tracking-wide text-[#777c86]">
         <span>Mar</span>
         <span>Jun</span>

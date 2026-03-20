@@ -9,7 +9,7 @@ function Footer() {
           href="mailto:v9mirza@proton.me"
           target="_blank"
           rel="noreferrer noopener"
-          className="inline-flex items-center justify-center rounded-md border border-[#2a303b] px-3 py-1.5 text-[12px] leading-[1.2] text-[#c7cdd7] transition-colors hover:border-[#d98973]/55 hover:text-[#e2c8bf] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d98973]/60"
+          className="inline-flex items-center justify-center rounded-md border border-[#2a303b] px-3 py-1.5 text-[12px] leading-[1.2] text-[#c7cdd7] transition-all duration-200 hover:border-[#d98973]/55 hover:text-[#e2c8bf] hover:scale-105 hover:shadow-md hover:shadow-[#d98973]/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d98973]/60"
         >
           Let&apos;s work together
         </a>

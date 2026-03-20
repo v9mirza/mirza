@@ -1,6 +1,6 @@
 function ExperienceItem({ item }) {
   return (
-    <article className="border-soft bg-card rounded-md border p-3 sm:p-4 transition-all duration-300 hover:-translate-y-[1px] hover:border-[#d98973]/50">
+    <article className="border-soft bg-card rounded-md border p-3 sm:p-4 transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.005] hover:border-[#d98973]/50 hover:shadow-lg hover:shadow-[#d98973]/5">
       <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
         <div>
           <h3 className="text-heading text-[14px] font-medium sm:text-[15px]">{item.role}</h3>
@@ -22,7 +22,7 @@ function ExperienceItem({ item }) {
         {item.stack.map((tech) => (
           <span
             key={tech}
-            className="rounded-sm border border-[#2a303b] bg-[#18181b] px-2 py-1 text-[11px] text-[#b4b8c2]"
+            className="rounded-sm border border-[#2a303b] bg-[#18181b] px-2 py-1 text-[11px] text-[#b4b8c2] transition-all duration-200 hover:border-[#d98973]/40 hover:text-[#d98973]"
           >
             {tech}
           </span>

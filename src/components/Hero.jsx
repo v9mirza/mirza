@@ -1,3 +1,4 @@
+import { useFadeIn } from '../hooks/useFadeIn'
 import { FiFileText, FiMail } from 'react-icons/fi'
 
 const quickLinks = [
@@ -6,8 +7,16 @@ const quickLinks = [
 ]
 
 function Hero() {
+  const [ref, isVisible] = useFadeIn({ threshold: 0.1 })
+
   return (
-    <section id="home" className="relative overflow-hidden border-b border-soft py-7 sm:py-8">
+    <section
+      id="home"
+      ref={ref}
+      className={`relative overflow-hidden border-b border-soft py-7 sm:py-8 transition-all duration-700 ${
+        isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+      }`}
+    >
       <p className="text-muted relative z-[1] text-[13px] sm:text-[14px]">developer • technical writer • builder</p>
       <h1 className="font-title text-accent relative z-[1] mt-2 text-[38px] font-medium leading-none tracking-tight sm:text-[42px] md:text-[46px]">
         Hassan Mirza
@@ -31,7 +40,7 @@ function Hero() {
             target={isMailtoOrHttp || isResume ? '_blank' : undefined}
             rel={isMailtoOrHttp || isResume ? 'noreferrer noopener' : undefined}
             download={isResume ? 'mirza-resume-fsd.pdf' : undefined}
-            className="inline-flex items-center gap-2 rounded-sm text-[#8d94a0] transition-colors hover:text-[#d98973] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d98973]/60"
+            className="inline-flex items-center gap-2 rounded-sm text-[#8d94a0] transition-all duration-200 hover:text-[#d98973] hover:gap-2.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d98973]/60"
           >
             <Icon className="text-[12px]" />
             {link.label}

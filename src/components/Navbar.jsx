@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { FiFileText, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
+import { FiFileText, FiGithub, FiLinkedin, FiMail, FiMenu, FiX } from 'react-icons/fi'
 
 const links = [
   { label: 'home', href: '#home' },
@@ -23,6 +23,7 @@ const actions = [
 
 function Navbar() {
   const [activeSection, setActiveSection] = useState('home')
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const ids = ['home', 'projects', 'experience', 'skills']
@@ -52,16 +53,50 @@ function Navbar() {
     return () => observer.disconnect()
   }, [])
 
+  // Close menu when resizing to desktop size
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 640 && mobileMenuOpen) {
+        setMobileMenuOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [mobileMenuOpen])
+
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false)
+  }
+
   return (
-    <header className="border-soft sticky top-0 z-10 border-b bg-[#18181b]/55 backdrop-blur-md backdrop-saturate-150">
-      <nav className="mx-auto flex w-full flex-wrap items-center justify-between gap-2 px-2 py-2.5 sm:flex-nowrap sm:items-center max-w-[760px]">
+    <header className="border-soft sticky top-0 z-50 border-b bg-[#18181b]/95 backdrop-blur-md backdrop-saturate-150">
+      <nav className="mx-auto flex w-full items-center justify-between gap-2 px-3 py-2.5 sm:px-4 max-w-[760px]">
+        {/* Hamburger menu button - visible only on mobile */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation()
+            setMobileMenuOpen(!mobileMenuOpen)
+          }}
+          aria-label="Toggle navigation menu"
+          aria-expanded={mobileMenuOpen}
+          className="flex items-center justify-center p-1.5 text-[#a0a5b0] transition-colors hover:text-[#d98973] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d98973]/60 rounded-sm sm:hidden"
+        >
+          {mobileMenuOpen ? (
+            <FiX className="text-[22px]" />
+          ) : (
+            <FiMenu className="text-[22px]" />
+          )}
+        </button>
+
+        {/* Desktop navigation */}
         <ul className="hidden min-w-0 flex-1 flex-wrap items-center gap-2 text-[13px] sm:flex sm:gap-3 sm:text-[14px]">
           {links.map((link) => (
             <li key={link.label}>
               <a
                 href={link.href}
                 aria-current={activeSection === link.href.replace('#', '') ? 'page' : undefined}
-                className={`whitespace-nowrap leading-none rounded-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d98973]/60 ${
+                className={`whitespace-nowrap leading-none rounded-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d98973]/60 ${
                   activeSection === link.href.replace('#', '') ? 'text-[#d98973]' : 'hover:text-[#d98973]'
                 }`}
               >
@@ -70,7 +105,9 @@ function Navbar() {
             </li>
           ))}
         </ul>
-        <ul className="flex flex-shrink-0 items-center gap-1.5 text-[#7a808a] sm:gap-2.5">
+
+        {/* Action icons */}
+        <ul className="flex flex-shrink-0 items-center gap-2 text-[#7a808a] sm:gap-2.5">
           {actions.map((item) => {
             const Icon = item.icon
             const isExternal =
@@ -88,7 +125,7 @@ function Navbar() {
                   target={target}
                   rel={rel}
                   download={item.download}
-                  className="inline-flex whitespace-nowrap leading-none text-[13px] transition-colors hover:text-[#d98973] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d98973]/60 sm:text-[14px]"
+                  className="inline-flex items-center justify-center p-1.5 whitespace-nowrap leading-none text-[14px] transition-colors duration-200 hover:text-[#d98973] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d98973]/60 rounded-sm sm:text-[15px]"
                 >
                   <Icon className="text-[1em]" />
                 </a>
@@ -97,6 +134,31 @@ function Navbar() {
           })}
         </ul>
       </nav>
+
+      {/* Mobile menu - inside header so it sticks with navbar */}
+      {mobileMenuOpen && (
+        <div className="sm:hidden border-t border-[#1f232b] bg-[#18181b]/95 backdrop-blur-md">
+          <div className="mx-auto max-w-[760px]">
+            <ul className="flex flex-col py-2">
+              {links.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    onClick={handleLinkClick}
+                    className={`block px-4 py-3 text-[14px] capitalize transition-colors ${
+                      activeSection === link.href.replace('#', '')
+                        ? 'text-[#d98973]'
+                        : 'text-[#c0c5cf] hover:text-[#d98973]'
+                    }`}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      )}
     </header>
   )
 }
