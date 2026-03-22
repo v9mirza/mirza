@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { FiFileText, FiGithub, FiLinkedin, FiMail, FiMenu, FiX } from 'react-icons/fi'
+import MagneticButton from './MagneticButton'
 
 const links = [
   { label: 'home', href: '#home' },
@@ -24,6 +25,16 @@ const actions = [
 function Navbar() {
   const [activeSection, setActiveSection] = useState('home')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [copied, setCopied] = useState(false)
+
+  const handleActionClick = (e, item) => {
+    if (item.label === 'Email') {
+      e.preventDefault()
+      navigator.clipboard.writeText('v9mirza@proton.me')
+      setCopied(true)
+      setTimeout(() => setCopied(false), 2000)
+    }
+  }
 
   useEffect(() => {
     const ids = ['home', 'projects', 'experience', 'skills']
@@ -70,7 +81,8 @@ function Navbar() {
   }
 
   return (
-    <header className="border-soft sticky top-0 z-50 border-b bg-[#18181b]/95 backdrop-blur-md backdrop-saturate-150">
+    <>
+      <header className="border-soft sticky top-0 z-50 border-b bg-[#18181b]/60 backdrop-blur-lg backdrop-saturate-150 transition-colors duration-300">
       <nav className="mx-auto flex w-full items-center justify-between gap-2 px-3 py-2.5 sm:px-4 max-w-[760px]">
         {/* Hamburger menu button - visible only on mobile */}
         <button
@@ -96,11 +108,13 @@ function Navbar() {
               <a
                 href={link.href}
                 aria-current={activeSection === link.href.replace('#', '') ? 'page' : undefined}
-                className={`whitespace-nowrap leading-none rounded-sm transition-colors duration-200 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d98973]/60 ${
+                className={`group relative flex items-center whitespace-nowrap leading-none rounded-sm transition-colors duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d98973]/60 ${
                   activeSection === link.href.replace('#', '') ? 'text-[#d98973]' : 'hover:text-[#d98973]'
                 }`}
               >
+                <span className="absolute -left-2.5 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-x-0.5 text-[#d98973]/70 font-mono text-[10px] leading-none mt-[1px]">[</span>
                 {link.label}
+                <span className="absolute -right-2.5 opacity-0 translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0.5 text-[#d98973]/70 font-mono text-[10px] leading-none mt-[1px]">]</span>
               </a>
             </li>
           ))}
@@ -119,16 +133,19 @@ function Navbar() {
 
             return (
               <li key={item.label}>
-                <a
-                  href={item.href}
-                  aria-label={item.label}
-                  target={target}
-                  rel={rel}
-                  download={item.download}
-                  className="inline-flex items-center justify-center p-1.5 whitespace-nowrap leading-none text-[14px] transition-colors duration-200 hover:text-[#d98973] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d98973]/60 rounded-sm sm:text-[15px]"
-                >
-                  <Icon className="text-[1em]" />
-                </a>
+                <MagneticButton>
+                  <a
+                    href={item.href}
+                    onClick={(e) => handleActionClick(e, item)}
+                    aria-label={item.label}
+                    target={target}
+                    rel={rel}
+                    download={item.download}
+                    className="inline-flex items-center justify-center p-1.5 whitespace-nowrap leading-none text-[14px] transition-colors duration-200 hover:text-[#d98973] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d98973]/60 rounded-sm sm:text-[15px]"
+                  >
+                    <Icon className="text-[1em]" />
+                  </a>
+                </MagneticButton>
               </li>
             )
           })}
@@ -137,7 +154,7 @@ function Navbar() {
 
       {/* Mobile menu - inside header so it sticks with navbar */}
       {mobileMenuOpen && (
-        <div className="sm:hidden border-t border-[#1f232b] bg-[#18181b]/95 backdrop-blur-md">
+        <div className="sm:hidden border-t border-[#1f232b] bg-[#18181b]/80 backdrop-blur-lg">
           <div className="mx-auto max-w-[760px]">
             <ul className="flex flex-col py-2">
               {links.map((link) => (
@@ -159,7 +176,19 @@ function Navbar() {
           </div>
         </div>
       )}
-    </header>
+
+      </header>
+
+      {/* Toast Notification */}
+      <div 
+        className={`fixed bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-[#18181b]/80 backdrop-blur-md border border-[#2a303b] px-4 py-2.5 text-[13px] font-medium text-[#e8ebf0] shadow-[0_4px_12px_rgba(0,0,0,0.5),0_0_20px_rgba(217,137,115,0.1)] transition-all duration-300 z-[100] flex items-center gap-2.5 ${copied ? 'translate-y-0 scale-100 opacity-100' : 'translate-y-4 scale-95 opacity-0 pointer-events-none'}`}
+      >
+        <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#d98973]/20 text-[#d98973]">
+          <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+        </span>
+        Copied to clipboard
+      </div>
+    </>
   )
 }
 

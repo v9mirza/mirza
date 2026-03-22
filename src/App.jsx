@@ -12,7 +12,7 @@ import { skillCategories } from './data/skills'
 
 function App() {
   return (
-    <div className="min-h-screen bg-[#18181b]">
+    <div className="relative min-h-screen bg-[#18181b]">
       <Navbar />
       <main className="relative z-[1] mx-auto w-full max-w-[760px] px-3 sm:px-4 md:px-5">
         <Hero />
