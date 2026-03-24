@@ -1,12 +1,18 @@
 import { useEffect, useState } from 'react'
 import { FiFileText, FiGithub, FiLinkedin, FiMail, FiMenu, FiX } from 'react-icons/fi'
+import { Link, useLocation } from 'react-router-dom'
 import MagneticButton from './MagneticButton'
 
-const links = [
+const anchorLinks = [
   { label: 'home', href: '#home' },
-  { label: 'projects', href: '#projects' },
   { label: 'experience', href: '#experience' },
+  { label: 'projects', href: '#projects' },
   { label: 'skills', href: '#skills' },
+  { label: 'connect', href: '#connect' },
+]
+
+const routeLinks = [
+  { label: 'blogs', href: '/blogs' },
 ]
 
 const actions = [
@@ -26,6 +32,8 @@ function Navbar() {
   const [activeSection, setActiveSection] = useState('home')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [copied, setCopied] = useState(false)
+  const location = useLocation()
+  const isOnBlogsPage = location.pathname === '/blogs'
 
   const handleActionClick = (e, item) => {
     if (item.label === 'Email') {
@@ -37,7 +45,7 @@ function Navbar() {
   }
 
   useEffect(() => {
-    const ids = ['home', 'projects', 'experience', 'skills']
+    const ids = ['home', 'experience', 'projects', 'github-activity', 'skills', 'stats', 'connect']
     const elements = ids
       .map((id) => document.getElementById(id))
       .filter(Boolean)
@@ -103,10 +111,12 @@ function Navbar() {
 
         {/* Desktop navigation */}
         <ul className="hidden min-w-0 flex-1 flex-wrap items-center gap-2 text-[13px] sm:flex sm:gap-3 sm:text-[14px]">
-          {links.map((link) => (
+        {anchorLinks.map((link) => {
+            const resolvedHref = isOnBlogsPage ? `/${link.href}` : link.href
+            return (
             <li key={link.label}>
               <a
-                href={link.href}
+                href={resolvedHref}
                 aria-current={activeSection === link.href.replace('#', '') ? 'page' : undefined}
                 className={`group relative flex items-center whitespace-nowrap leading-none rounded-sm transition-colors duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d98973]/60 ${
                   activeSection === link.href.replace('#', '') ? 'text-[#d98973]' : 'hover:text-[#d98973]'
@@ -116,6 +126,21 @@ function Navbar() {
                 {link.label}
                 <span className="absolute -right-2.5 opacity-0 translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0.5 text-[#d98973]/70 font-mono text-[10px] leading-none mt-[1px]">]</span>
               </a>
+            </li>
+            )
+          })}
+          {routeLinks.map((link) => (
+            <li key={link.label}>
+              <Link
+                to={link.href}
+                className={`group relative flex items-center whitespace-nowrap leading-none rounded-sm transition-colors duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d98973]/60 ${
+                  isOnBlogsPage ? 'text-[#d98973]' : 'hover:text-[#d98973]'
+                }`}
+              >
+                <span className="absolute -left-2.5 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-x-0.5 text-[#d98973]/70 font-mono text-[10px] leading-none mt-[1px]">[</span>
+                {link.label}
+                <span className="absolute -right-2.5 opacity-0 translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0.5 text-[#d98973]/70 font-mono text-[10px] leading-none mt-[1px]">]</span>
+              </Link>
             </li>
           ))}
         </ul>
@@ -157,10 +182,12 @@ function Navbar() {
         <div className="sm:hidden border-t border-[#1f232b] bg-[#18181b]/80 backdrop-blur-lg">
           <div className="mx-auto max-w-[760px]">
             <ul className="flex flex-col py-2">
-              {links.map((link) => (
+              {anchorLinks.map((link) => {
+                const resolvedHref = isOnBlogsPage ? `/${link.href}` : link.href
+                return (
                 <li key={link.label}>
                   <a
-                    href={link.href}
+                    href={resolvedHref}
                     onClick={handleLinkClick}
                     className={`block px-4 py-3 text-[14px] capitalize transition-colors ${
                       activeSection === link.href.replace('#', '')
@@ -170,6 +197,22 @@ function Navbar() {
                   >
                     {link.label}
                   </a>
+                </li>
+                )
+              })}
+              {routeLinks.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    to={link.href}
+                    onClick={handleLinkClick}
+                    className={`block px-4 py-3 text-[14px] capitalize transition-colors ${
+                      isOnBlogsPage
+                        ? 'text-[#d98973]'
+                        : 'text-[#c0c5cf] hover:text-[#d98973]'
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
                 </li>
               ))}
             </ul>

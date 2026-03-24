@@ -1,3 +1,4 @@
+import ConnectSection from './components/ConnectSection'
 import ExperienceItem from './components/ExperienceItem'
 import Footer from './components/Footer'
 import GithubActivity from './components/GithubActivity'
@@ -6,13 +7,22 @@ import Navbar from './components/Navbar'
 import ProjectCard from './components/ProjectCard'
 import Section from './components/Section'
 import SkillsSection from './components/SkillsSection'
+import StatsSection from './components/StatsSection'
 import { experienceItems } from './data/experience'
 import { projects } from './data/projects'
 import { skillCategories } from './data/skills'
 
+import { motion } from 'framer-motion'
+
 function App() {
   return (
-    <div className="relative min-h-screen bg-[#18181b]">
+    <motion.div
+      initial={{ opacity: 0, y: 10 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -10 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      className="relative min-h-screen bg-[#18181b]"
+    >
       <Navbar />
       <main className="relative z-[1] mx-auto w-full max-w-[760px] px-3 sm:px-4 md:px-5">
         <Hero />
@@ -52,9 +62,17 @@ function App() {
           <SkillsSection categories={skillCategories} />
         </Section>
 
+        <Section id="stats" title="Stats">
+          <StatsSection />
+        </Section>
+
+        <Section id="connect" title="Connect">
+          <ConnectSection />
+        </Section>
+
         <Footer />
       </main>
-    </div>
+    </motion.div>
   )
 }
 
