@@ -13,7 +13,7 @@ const stats = [
 function CountUp({ value }) {
   const [displayValue, setDisplayValue] = useState('0')
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: "-50px" })
+  const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   useEffect(() => {
     if (!isInView) return
@@ -28,7 +28,7 @@ function CountUp({ value }) {
     const suffix = value.replace(numericMatch[0], '')
 
     const controls = animate(0, target, {
-      duration: 2,
+      duration: 1.5,
       ease: "easeOut",
       onUpdate: (latest) => {
         setDisplayValue(Math.floor(latest) + suffix)
