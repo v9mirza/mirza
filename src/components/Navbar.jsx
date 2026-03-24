@@ -3,18 +3,11 @@ import { FiFileText, FiGithub, FiLinkedin, FiMail, FiMenu, FiX } from 'react-ico
 import { Link, useLocation } from 'react-router-dom'
 import MagneticButton from './MagneticButton'
 
-const anchorLinks = [
-  { label: 'home', href: '#home' },
-  { label: 'experience', href: '#experience' },
-  { label: 'projects', href: '#projects' },
-  { label: 'skills', href: '#skills' },
-  { label: 'connect', href: '#connect' },
-]
-
 const routeLinks = [
+  { label: 'home', href: '/' },
   { label: 'blogs', href: '/blogs' },
-  { label: 'uses', href: '/uses' },
   { label: 'resume', href: '/resume' },
+  { label: 'uses', href: '/uses' },
 ]
 
 const actions = [
@@ -31,11 +24,9 @@ const actions = [
 ]
 
 function Navbar() {
-  const [activeSection, setActiveSection] = useState('home')
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [copied, setCopied] = useState(false)
   const location = useLocation()
-  const isHome = location.pathname === '/'
 
   const handleActionClick = (e, item) => {
     if (item.label === 'Email') {
@@ -46,33 +37,7 @@ function Navbar() {
     }
   }
 
-  useEffect(() => {
-    const ids = ['home', 'experience', 'projects', 'github-activity', 'skills', 'stats', 'connect']
-    const elements = ids
-      .map((id) => document.getElementById(id))
-      .filter(Boolean)
 
-    if (!elements.length) return
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries.filter((e) => e.isIntersecting)
-        if (!visible.length) return
-        visible.sort(
-          (a, b) => (b.intersectionRatio ?? 0) - (a.intersectionRatio ?? 0),
-        )
-        setActiveSection(visible[0].target.id)
-      },
-      {
-        root: null,
-        threshold: [0.01, 0.1, 0.25],
-        rootMargin: '-45% 0px -50% 0px',
-      },
-    )
-
-    elements.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
-  }, [])
 
   // Close menu when resizing to desktop size
   useEffect(() => {
@@ -113,24 +78,6 @@ function Navbar() {
 
         {/* Desktop navigation */}
         <ul className="hidden min-w-0 flex-1 flex-wrap items-center gap-2 text-[13px] sm:flex sm:gap-3 sm:text-[14px]">
-        {anchorLinks.map((link) => {
-            const resolvedHref = !isHome ? `/${link.href}` : link.href
-            return (
-            <li key={link.label}>
-              <a
-                href={resolvedHref}
-                aria-current={activeSection === link.href.replace('#', '') ? 'page' : undefined}
-                className={`group relative flex items-center whitespace-nowrap leading-none rounded-sm transition-colors duration-300 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d98973]/60 ${
-                  activeSection === link.href.replace('#', '') ? 'text-[#d98973]' : 'hover:text-[#d98973]'
-                }`}
-              >
-                <span className="absolute -left-2.5 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-x-0.5 text-[#d98973]/70 font-mono text-[10px] leading-none mt-[1px]">[</span>
-                {link.label}
-                <span className="absolute -right-2.5 opacity-0 translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0.5 text-[#d98973]/70 font-mono text-[10px] leading-none mt-[1px]">]</span>
-              </a>
-            </li>
-            )
-          })}
           {routeLinks.map((link) => {
             const isActive = location.pathname === link.href
             return (
@@ -187,24 +134,6 @@ function Navbar() {
         <div className="sm:hidden border-t border-[#1f232b] bg-[#18181b]/80 backdrop-blur-lg">
           <div className="mx-auto max-w-[760px]">
             <ul className="flex flex-col py-2">
-              {anchorLinks.map((link) => {
-                const resolvedHref = !isHome ? `/${link.href}` : link.href
-                return (
-                <li key={link.label}>
-                  <a
-                    href={resolvedHref}
-                    onClick={handleLinkClick}
-                    className={`block px-4 py-3 text-[14px] capitalize transition-colors ${
-                      activeSection === link.href.replace('#', '')
-                        ? 'text-[#d98973]'
-                        : 'text-[#c0c5cf] hover:text-[#d98973]'
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                </li>
-                )
-              })}
               {routeLinks.map((link) => {
                 const isActive = location.pathname === link.href
                 return (
