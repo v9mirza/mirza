@@ -5,8 +5,11 @@ import SkillsSection from '../components/SkillsSection'
 import { experienceItems } from '../data/experience'
 import { skillCategories } from '../data/skills'
 import { FiDownload } from 'react-icons/fi'
+import { useState } from 'react'
 
 function ResumePage() {
+  const [openExperienceIndex, setOpenExperienceIndex] = useState(null)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -43,8 +46,15 @@ function ResumePage() {
               Experience
             </h2>
             <div className="space-y-4">
-              {experienceItems.map((item) => (
-                <ExperienceItem key={`${item.company}-${item.role}`} item={item} />
+              {experienceItems.map((item, index) => (
+                <ExperienceItem
+                  key={`${item.company}-${item.role}`}
+                  item={item}
+                  isOpen={openExperienceIndex === index}
+                  onToggle={() =>
+                    setOpenExperienceIndex((prev) => (prev === index ? null : index))
+                  }
+                />
               ))}
             </div>
           </section>

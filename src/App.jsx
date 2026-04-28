@@ -13,8 +13,11 @@ import { projects } from './data/projects'
 import { skillCategories } from './data/skills'
 
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 function App() {
+  const [openExperienceIndex, setOpenExperienceIndex] = useState(null)
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 10 }}
@@ -29,8 +32,15 @@ function App() {
 
         <Section id="experience" title="Experience">
           <div className="space-y-4">
-            {experienceItems.map((item) => (
-              <ExperienceItem key={`${item.company}-${item.role}`} item={item} />
+            {experienceItems.map((item, index) => (
+              <ExperienceItem
+                key={`${item.company}-${item.role}`}
+                item={item}
+                isOpen={openExperienceIndex === index}
+                onToggle={() =>
+                  setOpenExperienceIndex((prev) => (prev === index ? null : index))
+                }
+              />
             ))}
           </div>
         </Section>
