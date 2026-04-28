@@ -8,7 +8,7 @@ const roles = [
   'technical writer',
   'builder',
   'Arch Linux user',
-  'open source contributor'
+  'open-source contributor',
 ]
 
 const quickLinks = [
@@ -48,7 +48,7 @@ function Hero() {
           className="flex items-center gap-2 text-muted text-[13px] sm:text-[14px]"
         >
           <span className="opacity-70">currently —</span>
-          <div className="relative h-[20px] overflow-hidden min-w-[150px]">
+          <div className="relative h-[20px] overflow-hidden min-w-[210px] sm:min-w-[230px]">
             <AnimatePresence mode="wait">
               <motion.span
                 key={roles[currentRole]}
