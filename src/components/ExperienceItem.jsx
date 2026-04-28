@@ -1,19 +1,19 @@
 function ExperienceItem({ item, isOpen, onToggle }) {
   return (
-    <article className="border-soft bg-card rounded-md border p-3 sm:p-4 transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.005] hover:border-[#d98973]/50 hover:shadow-lg hover:shadow-[#d98973]/5">
+    <article className="border-soft bg-card rounded-md border p-3 transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.005] hover:border-[#d98973]/50 hover:shadow-lg hover:shadow-[#d98973]/5 sm:p-4">
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={isOpen}
         className="w-full rounded-md p-1 -m-1 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d98973]/60"
       >
-        <div className="flex items-start justify-between gap-3">
+        <div className="flex items-center justify-between gap-2 sm:items-start sm:gap-3">
           <div className="min-w-0">
             <h3 className="text-heading text-[14px] font-medium sm:text-[15px]">{item.role}</h3>
             <p className="text-[12px] text-[#b3b8c1] sm:text-[13px]">{item.company}</p>
           </div>
           <span
-            className={`inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-[#2a303b] text-[#b3b8c1] transition-transform duration-200 ${
+            className={`inline-flex h-7 w-7 shrink-0 items-center justify-center rounded-full border border-[#2a303b] text-[#b3b8c1] transition-transform duration-200 sm:h-8 sm:w-8 ${
               isOpen ? 'rotate-90' : 'rotate-0'
             }`}
             aria-hidden="true"
@@ -25,11 +25,11 @@ function ExperienceItem({ item, isOpen, onToggle }) {
         </div>
       </button>
 
-      <div className="text-muted mt-2 flex flex-col gap-1 text-[11px] sm:flex-row sm:items-center sm:justify-between sm:text-[12px]">
-        <p>{item.location}</p>
-        <p className="inline-block rounded-full border border-[#2a303b] bg-[#18181b] px-2 py-0.5 text-[11px] text-[#c2c7d0] sm:text-[12px]">
+      <div className="text-muted mt-2 flex items-center justify-between gap-2 text-[11px] sm:text-[12px]">
+        <p className="truncate">{item.location}</p>
+        <span className="shrink-0 rounded-full border border-[#2a303b] bg-[#18181b] px-2 py-0.5 text-[11px] text-[#c2c7d0] sm:text-[12px]">
           {item.duration}
-        </p>
+        </span>
       </div>
 
       <div
@@ -38,7 +38,7 @@ function ExperienceItem({ item, isOpen, onToggle }) {
         }`}
       >
         <div className="min-h-0">
-          <ul className="text-muted mt-3 list-disc space-y-1.5 pl-5 text-[12.5px] leading-[1.58] sm:text-[13px]">
+          <ul className="text-muted mt-3 list-disc space-y-1.5 pl-4 text-[12.5px] leading-[1.58] sm:pl-5 sm:text-[13px]">
             {item.highlights.map((point) => (
               <li key={point}>{point}</li>
             ))}

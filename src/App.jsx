@@ -1,19 +1,24 @@
 import ConnectSection from './components/ConnectSection'
 import ExperienceItem from './components/ExperienceItem'
 import Footer from './components/Footer'
-import GithubActivity from './components/GithubActivity'
 import Hero from './components/Hero'
 import Navbar from './components/Navbar'
 import ProjectCard from './components/ProjectCard'
 import Section from './components/Section'
 import SkillsSection from './components/SkillsSection'
-import StatsSection from './components/StatsSection'
 import { experienceItems } from './data/experience'
 import { projects } from './data/projects'
 import { skillCategories } from './data/skills'
 
 import { motion } from 'framer-motion'
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
+
+const GithubActivity = lazy(() => import('./components/GithubActivity'))
+const StatsSection = lazy(() => import('./components/StatsSection'))
+
+function SectionFallback() {
+  return <div className="border-soft bg-card h-[96px] animate-pulse rounded-md border" aria-hidden="true" />
+}
 
 function App() {
   const [openExperienceIndex, setOpenExperienceIndex] = useState(null)
@@ -65,7 +70,9 @@ function App() {
         </Section>
 
         <Section id="github-activity" title="GitHub Snapshot">
-          <GithubActivity />
+          <Suspense fallback={<SectionFallback />}>
+            <GithubActivity />
+          </Suspense>
         </Section>
 
         <Section id="skills" title="Skills">
@@ -73,7 +80,9 @@ function App() {
         </Section>
 
         <Section id="stats" title="Stats">
-          <StatsSection />
+          <Suspense fallback={<SectionFallback />}>
+            <StatsSection />
+          </Suspense>
         </Section>
 
         <Section id="connect" title="Connect">

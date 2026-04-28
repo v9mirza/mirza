@@ -37,11 +37,10 @@ function Hero() {
   }
 
   return (
-    <>
-      <section
-        id="home"
-        className="relative overflow-hidden border-b border-soft py-10 sm:py-14"
-      >
+    <section
+      id="home"
+      className="relative overflow-hidden border-b border-soft py-10 sm:py-14"
+    >
         <motion.div 
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -65,16 +64,16 @@ function Hero() {
           </div>
         </motion.div>
 
-        <motion.h1 
+      <motion.h1 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
           className="font-title text-accent relative z-[1] mt-3 text-[42px] font-medium leading-none tracking-tight sm:text-[48px] md:text-[54px]"
         >
           Hassan Mirza
-        </motion.h1>
+      </motion.h1>
         
-        <motion.p 
+      <motion.p 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
@@ -85,7 +84,7 @@ function Hero() {
           I write to think clearly and explain complexity simply.
         </motion.p>
 
-        <motion.div 
+      <motion.div 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
@@ -117,7 +116,6 @@ function Hero() {
             )
           })}
         </motion.div>
-      </section>
 
       {/* Toast Notification */}
       <div 
@@ -128,7 +126,7 @@ function Hero() {
         </span>
         Copied to clipboard
       </div>
-    </>
+    </section>
   )
 }
 
