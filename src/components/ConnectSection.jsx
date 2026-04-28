@@ -1,4 +1,4 @@
-import { FiArrowRight, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
+import { FiArrowRight, FiGithub, FiLinkedin, FiTwitter } from 'react-icons/fi'
 import { SiHashnode } from 'react-icons/si'
 
 const links = [
@@ -24,24 +24,25 @@ const links = [
     description: 'Technical articles & dev writing',
   },
   {
-    label: 'Email',
-    handle: 'v9mirza@proton.me',
-    href: 'mailto:v9mirza@proton.me',
-    icon: FiMail,
-    description: 'Best way to reach me directly',
+    label: 'X',
+    handle: '@v9mirza',
+    href: 'https://x.com/v9mirza',
+    icon: FiTwitter,
+    description: 'Build updates, thoughts & dev notes',
   },
 ]
 
 function ConnectSection() {
   return (
     <div className="space-y-3 sm:space-y-4">
-      <div className="border-soft bg-card rounded-md border p-3 sm:p-4">
-        <p className="text-[13px] text-[#b8bdc7] sm:text-[14px]">Prefer email for work opportunities.</p>
+      <div className="border-soft bg-card rounded-md border p-3 transition-colors duration-200 hover:border-[#d98973]/35 sm:p-4">
+        <p className="text-[13px] text-[#c0c5cf] sm:text-[14px]">Prefer email for work opportunities.</p>
+        <p className="mt-1 text-[12px] text-[#99a0ac] sm:text-[13px]">Usually replies within 24 hours.</p>
         <a
           href="mailto:v9mirza@proton.me"
-          className="mt-2 inline-flex items-center gap-2 rounded-md border border-[#d98973]/40 bg-[#d98973]/12 px-3 py-2 text-[13px] font-medium text-[#f0d1c7] transition-all duration-300 hover:border-[#d98973]/60 hover:bg-[#d98973]/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d98973]/60"
+          className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md border border-[#d98973]/40 bg-[#d98973]/12 px-3 py-2 text-[13px] font-medium text-[#f0d1c7] transition-all duration-300 hover:border-[#d98973]/60 hover:bg-[#d98973]/18 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d98973]/60 sm:w-auto"
         >
-          Email me directly
+          Start a conversation
           <FiArrowRight className="text-[14px]" />
         </a>
       </div>
@@ -67,7 +68,7 @@ function ConnectSection() {
                   </p>
                   <p className="text-muted text-[11px] truncate">{link.handle}</p>
                 </div>
-                <p className="text-muted mt-0.5 text-[12px] leading-snug">
+                <p className="mt-0.5 text-[12px] leading-snug text-[#a8aebb]">
                   {link.description}
                 </p>
               </div>
