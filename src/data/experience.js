@@ -12,5 +12,17 @@ export const experienceItems = [
     ],
     stack: ['React', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Docker', 'Linux'],
   },
-  
+  {
+    company: 'Freelance',
+    role: 'Freelance Developer',
+    location: 'Remote',
+    duration: 'Jan 2022 - Present',
+    highlights: [
+      'Built and deployed scalable full-stack web applications using the MERN stack.',
+      'Developed secure authentication systems, REST APIs, dashboards, and real-time features for client-facing platforms.',
+      'Delivered advanced products including AI-powered quiz platforms with live leaderboards and workflow automation.',
+      'Managed end-to-end development from UI implementation to backend architecture and deployment, both independently and in collaboration with clients.',
+    ],
+    stack: ['React', 'Node.js', 'Express', 'MongoDB', 'Socket.io', 'JWT', 'Docker'],
+  },
 ]
