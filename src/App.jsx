@@ -32,7 +32,7 @@ function App() {
       className="relative min-h-screen bg-[#18181b]"
     >
       <Navbar />
-      <main className="relative z-[1] mx-auto w-full max-w-[760px] px-3 sm:px-4 md:px-5">
+      <main className="relative z-[1] mx-auto w-full max-w-[700px] px-4 sm:px-5 md:px-6">
         <Hero />
 
         <Section id="experience" title="Experience">

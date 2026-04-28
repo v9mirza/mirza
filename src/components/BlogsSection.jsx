@@ -80,7 +80,7 @@ export async function fetchBlogs(limit = null) {
   return limit != null ? allPosts.slice(0, limit) : allPosts
 }
 
-export function BlogCard({ blog }) {
+export function BlogCard({ blog, featured = false }) {
   const date = new Date(blog.publishedAt).toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'short',
@@ -93,7 +93,9 @@ export function BlogCard({ blog }) {
       href={blog.url}
       target="_blank"
       rel="noreferrer noopener"
-      className="border-soft bg-card group block rounded-md border p-3 sm:p-4 transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.01] hover:border-[#d98973]/50 hover:shadow-lg hover:shadow-[#d98973]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d98973]/60"
+      className={`border-soft group block rounded-md border p-3 transition-colors duration-200 hover:border-[#d98973]/45 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d98973]/60 sm:p-4 ${
+        featured ? 'bg-[#1a1b20]' : 'bg-transparent'
+      }`}
     >
       <div className="mb-2 flex items-center gap-2">
         <p className="text-[11px] uppercase tracking-[0.16em] text-[#7f8590] transition-colors duration-300 group-hover:text-[#d98973]/70">
@@ -109,11 +111,11 @@ export function BlogCard({ blog }) {
           {blog.readTimeInMinutes} min read
         </span>
       </div>
-      <h3 className="text-heading text-[15px] font-medium sm:text-[16px] leading-snug transition-colors duration-300 group-hover:text-[#d98973]">
+      <h3 className={`text-heading leading-snug transition-colors duration-200 group-hover:text-[#d98973] ${featured ? 'text-[16px] sm:text-[17px]' : 'text-[15px] sm:text-[16px]'}`}>
         {blog.title}
       </h3>
       {blog.brief && (
-        <p className="text-muted mt-2 text-[13px] leading-[1.58] line-clamp-2">
+        <p className={`text-muted mt-2 text-[13px] leading-[1.58] ${featured ? 'line-clamp-3' : 'line-clamp-2'}`}>
           {blog.brief}
         </p>
       )}

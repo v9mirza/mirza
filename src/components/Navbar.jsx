@@ -58,7 +58,7 @@ function Navbar() {
   return (
     <>
       <header className="border-soft sticky top-0 z-50 border-b bg-[#18181b]/60 backdrop-blur-lg backdrop-saturate-150 transition-colors duration-300">
-      <nav className="mx-auto flex w-full items-center justify-between gap-2 px-3 py-2.5 sm:px-4 max-w-[760px]">
+      <nav className="mx-auto flex w-full max-w-[700px] items-center justify-between gap-2 px-4 py-2.5 sm:px-5">
         {/* Hamburger menu button - visible only on mobile */}
         <button
           onClick={(e) => {
@@ -132,7 +132,7 @@ function Navbar() {
       {/* Mobile menu - inside header so it sticks with navbar */}
       {mobileMenuOpen && (
         <div className="sm:hidden border-t border-[#1f232b] bg-[#18181b]/80 backdrop-blur-lg">
-          <div className="mx-auto max-w-[760px]">
+          <div className="mx-auto max-w-[700px]">
             <ul className="flex flex-col py-2">
               {routeLinks.map((link) => {
                 const isActive = location.pathname === link.href

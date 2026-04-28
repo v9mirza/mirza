@@ -1,6 +1,6 @@
 function ExperienceItem({ item, isOpen, onToggle }) {
   return (
-    <article className="border-soft bg-card rounded-md border p-3 transition-all duration-300 hover:-translate-y-[2px] hover:scale-[1.005] hover:border-[#d98973]/50 hover:shadow-lg hover:shadow-[#d98973]/5 sm:p-4">
+    <article className="border-soft rounded-md border bg-transparent p-3 transition-colors duration-200 hover:border-[#d98973]/40 sm:p-4">
       <button
         type="button"
         onClick={onToggle}
@@ -27,7 +27,7 @@ function ExperienceItem({ item, isOpen, onToggle }) {
 
       <div className="text-muted mt-2 flex items-center justify-between gap-2 text-[11px] sm:text-[12px]">
         <p className="truncate">{item.location}</p>
-        <span className="shrink-0 rounded-full border border-[#2a303b] bg-[#18181b] px-2 py-0.5 text-[11px] text-[#c2c7d0] sm:text-[12px]">
+        <span className="shrink-0 rounded-full border border-[#2a303b] px-2 py-0.5 text-[11px] text-[#aeb4be] sm:rounded-none sm:border-0 sm:px-0 sm:py-0 sm:text-[12px]">
           {item.duration}
         </span>
       </div>

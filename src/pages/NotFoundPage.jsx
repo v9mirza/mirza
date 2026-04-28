@@ -14,7 +14,7 @@ function NotFoundPage() {
       className="relative min-h-screen bg-[#18181b] flex flex-col"
     >
       <Navbar />
-      <main className="relative z-[1] mx-auto w-full max-w-[760px] px-3 sm:px-4 md:px-5 flex-1 flex flex-col items-center justify-center text-center">
+      <main className="relative z-[1] mx-auto flex w-full max-w-[700px] flex-1 flex-col items-center justify-center px-4 text-center sm:px-5 md:px-6">
         <p className="font-mono text-[#d98973]/70 text-[13px] sm:text-[14px] mb-3">404</p>
         <h1 className="font-title text-accent text-[42px] font-medium leading-none tracking-tight sm:text-[52px] md:text-[62px]">
           Lost in the void
