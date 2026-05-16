@@ -3,7 +3,6 @@ import { Routes, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import App from './App.jsx'
 
-const BlogsPage = lazy(() => import('./pages/BlogsPage.jsx'))
 const UsesPage = lazy(() => import('./pages/UsesPage.jsx'))
 const ResumePage = lazy(() => import('./pages/ResumePage.jsx'))
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'))
@@ -17,7 +16,6 @@ function MainRoutes() {
   useEffect(() => {
     const warmRoutes = () => {
       import('./pages/ResumePage.jsx')
-      import('./pages/BlogsPage.jsx')
       import('./pages/UsesPage.jsx')
     }
 
@@ -35,7 +33,6 @@ function MainRoutes() {
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<App />} />
-          <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/uses" element={<UsesPage />} />
           <Route path="/resume" element={<ResumePage />} />
           <Route path="*" element={<NotFoundPage />} />

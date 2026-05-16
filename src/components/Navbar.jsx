@@ -5,10 +5,11 @@ import MagneticButton from './MagneticButton'
 
 const routeLinks = [
   { label: 'home', href: '/' },
-  { label: 'blogs', href: '/blogs' },
   { label: 'resume', href: '/resume' },
   { label: 'uses', href: '/uses' },
 ]
+
+const HASHNODE_URL = 'https://mirzalog.hashnode.dev'
 
 const actions = [
   {
@@ -95,6 +96,18 @@ function Navbar() {
             </li>
             )
           })}
+          <li>
+            <a
+              href={HASHNODE_URL}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="group relative flex items-center whitespace-nowrap leading-none rounded-sm transition-colors duration-300 hover:text-[#d98973] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#d98973]/60"
+            >
+              <span className="absolute -left-2.5 opacity-0 -translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:-translate-x-0.5 text-[#d98973]/70 font-mono text-[10px] leading-none mt-[1px]">[</span>
+              blogs
+              <span className="absolute -right-2.5 opacity-0 translate-x-1 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0.5 text-[#d98973]/70 font-mono text-[10px] leading-none mt-[1px]">]</span>
+            </a>
+          </li>
         </ul>
 
         {/* Action icons */}
@@ -152,6 +165,17 @@ function Navbar() {
                 </li>
                 )
               })}
+              <li>
+                <a
+                  href={HASHNODE_URL}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  onClick={handleLinkClick}
+                  className="block px-4 py-3 text-[14px] text-[#c0c5cf] transition-colors hover:text-[#d98973]"
+                >
+                  blogs ↗
+                </a>
+              </li>
             </ul>
           </div>
         </div>
