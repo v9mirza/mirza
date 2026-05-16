@@ -4,9 +4,9 @@ import { motion, animate, useInView } from 'framer-motion'
 const stats = [
   { value: '10+', label: 'Projects built' },
   { value: '4+', label: 'Years coding' },
-  { value: '10+', label: 'Articles written' },
+  { value: '1k+', label: 'GitHub commits' },
   { value: '4', label: 'Core languages' },
-  { value: '100+', label: 'GitHub commits' },
+  { value: '10+', label: 'Articles written' },
   { value: '∞', label: 'Bugs squashed' },
 ]
 
@@ -24,14 +24,18 @@ function CountUp({ value }) {
       return
     }
 
-    const target = parseInt(numericMatch[0], 10)
-    const suffix = value.replace(numericMatch[0], '')
+    const raw = parseInt(numericMatch[0], 10)
+    const hasK = value.includes('k')
+    const target = hasK ? raw * 1000 : raw
+    const suffix = hasK ? value.replace(/\d+k/, '') : value.replace(numericMatch[0], '')
 
     const controls = animate(0, target, {
       duration: 1.5,
-      ease: "easeOut",
+      ease: 'easeOut',
       onUpdate: (latest) => {
-        setDisplayValue(Math.floor(latest) + suffix)
+        const n = Math.floor(latest)
+        const display = hasK && n >= 1000 ? `${(n / 1000).toFixed(0)}k` : String(n)
+        setDisplayValue(display + suffix)
       },
     })
 
