@@ -13,7 +13,6 @@ import { skillCategories } from './data/skills'
 import { motion } from 'framer-motion'
 import { lazy, Suspense, useState } from 'react'
 
-const GithubActivity = lazy(() => import('./components/GithubActivity'))
 const StatsSection = lazy(() => import('./components/StatsSection'))
 
 function SectionFallback() {
@@ -67,12 +66,6 @@ function App() {
               Check them out.
             </a>
           </p>
-        </Section>
-
-        <Section id="github-activity" title="GitHub Snapshot">
-          <Suspense fallback={<SectionFallback />}>
-            <GithubActivity />
-          </Suspense>
         </Section>
 
         <Section id="skills" title="Skills">
