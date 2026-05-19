@@ -60,12 +60,14 @@ function Hero() {
             {/* Bottom fade */}
             <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#18181b]/60 to-transparent" />
             {/* Open to work dot */}
-            <div className="absolute bottom-3.5 right-3.5 flex items-center gap-1.5">
-              <div className="relative flex h-[10px] w-[10px] items-center justify-center">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-50" />
-                <span className="relative h-[7px] w-[7px] rounded-full bg-emerald-400" />
+            <div className="absolute bottom-3.5 right-3.5 group flex items-center justify-end">
+              <span className="mr-1.5 max-w-0 overflow-hidden whitespace-nowrap text-[10px] font-medium text-emerald-400/80 tracking-wide opacity-0 transition-all duration-300 group-hover:max-w-[80px] group-hover:opacity-100">
+                Open to work
+              </span>
+              <div className="relative flex-shrink-0 h-2.5 w-2.5">
+                <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400 opacity-50" />
+                <span className="absolute inset-[2px] rounded-full bg-emerald-400" />
               </div>
-              <span className="text-[10px] font-medium text-emerald-400/80 tracking-wide">Open to work</span>
             </div>
           </div>
         </motion.div>
