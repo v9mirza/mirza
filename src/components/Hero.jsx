@@ -16,6 +16,42 @@ const quickLinks = [
   { label: 'Get in touch', href: 'mailto:v9mirza@proton.me', icon: FiMail },
 ]
 
+function RoleTicker({ currentRole, className = '' }) {
+  return (
+    <div className={`flex items-center gap-2 text-[13px] text-[#555c68] ${className}`}>
+      <span>currently —</span>
+      <div
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+        className="relative h-[20px] overflow-hidden min-w-[205px]"
+      >
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={roles[currentRole]}
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -20, opacity: 0 }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+            className="absolute left-0 block whitespace-nowrap text-accent font-medium mt-[1px]"
+          >
+            {roles[currentRole]}
+          </motion.span>
+        </AnimatePresence>
+      </div>
+    </div>
+  )
+}
+
+function Bio({ className = '' }) {
+  return (
+    <p className={`max-w-[40ch] text-pretty text-[13px] leading-[1.7] text-[#a7adb8] sm:text-[14px] ${className}`}>
+      I build simple, reliable software from complex ideas — clean APIs,
+      predictable systems, and interfaces that stay out of the way.
+    </p>
+  )
+}
+
 function Hero() {
   const [currentRole, setCurrentRole] = useState(0)
   const [copied, setCopied] = useState(false)
@@ -23,7 +59,7 @@ function Hero() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentRole((prev) => (prev + 1) % roles.length)
-    }, 3000)
+    }, 4000)
     return () => clearInterval(timer)
   }, [])
 
@@ -50,7 +86,7 @@ function Hero() {
           transition={{ duration: 0.6, ease: 'easeOut' }}
           className="hidden sm:block flex-shrink-0 w-[220px] md:w-[250px]"
         >
-          <div className="relative h-full min-h-[300px] overflow-hidden rounded-3xl ring-1 ring-[#2a303b]">
+          <div className="group/photo relative h-full min-h-[300px] overflow-hidden rounded-3xl ring-1 ring-[#2a303b]">
             <img
               src="/mirza.jpg"
               alt="Hassan Mirza"
@@ -60,8 +96,8 @@ function Hero() {
             {/* Bottom fade */}
             <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-[#18181b]/60 to-transparent" />
             {/* Open to work dot */}
-            <div className="absolute bottom-3.5 right-3.5 group flex items-center justify-end">
-              <span className="mr-1.5 max-w-0 overflow-hidden whitespace-nowrap text-[10px] font-medium text-emerald-400/80 tracking-wide opacity-0 transition-all duration-300 group-hover:max-w-[80px] group-hover:opacity-100">
+            <div className="absolute bottom-3.5 right-3.5 group/dot flex items-center justify-end">
+              <span className="mr-1.5 max-w-0 overflow-hidden whitespace-nowrap text-[10px] font-medium text-emerald-400/80 tracking-wide opacity-0 transition-all duration-300 group-hover/dot:max-w-[80px] group-hover/dot:opacity-100">
                 Open to work
               </span>
               <div className="relative flex-shrink-0 h-2.5 w-2.5">
@@ -79,7 +115,7 @@ function Hero() {
         <motion.div
           initial={{ opacity: 0, x: 10 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: 'easeOut' }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.15 }}
           className="flex flex-col justify-center min-w-0 flex-1"
         >
           <p className="text-[11px] uppercase tracking-[0.2em] text-[#555c68]">
@@ -90,29 +126,9 @@ function Hero() {
             Hassan Mirza
           </h1>
 
-          {/* Role ticker */}
-          <div className="mt-3.5 flex items-center gap-2 text-[13px] text-[#555c68]">
-            <span>currently —</span>
-            <div className="relative h-[20px] overflow-hidden min-w-[160px]">
-              <AnimatePresence mode="wait">
-                <motion.span
-                  key={roles[currentRole]}
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: -20, opacity: 0 }}
-                  transition={{ duration: 0.4, ease: 'easeInOut' }}
-                  className="absolute left-0 block whitespace-nowrap text-accent font-medium mt-[1px]"
-                >
-                  {roles[currentRole]}
-                </motion.span>
-              </AnimatePresence>
-            </div>
-          </div>
+          <RoleTicker currentRole={currentRole} className="mt-3.5" />
 
-          <p className="mt-5 max-w-[40ch] text-pretty text-[13px] leading-[1.7] text-[#a7adb8] sm:text-[14px]">
-            I build simple, reliable software from complex ideas — clean APIs,
-            predictable systems, and interfaces that stay out of the way.
-          </p>
+          <Bio className="mt-5" />
 
           <div className="mt-6 flex flex-wrap gap-2 sm:gap-4 text-[13px] sm:text-[14px]">
             {quickLinks.map((link) => {
@@ -148,27 +164,11 @@ function Hero() {
       <div className="sm:hidden mt-2">
         <p className="text-[11px] uppercase tracking-[0.18em] text-[#6b7280]">Full-Stack Developer</p>
         <h1 className="font-title text-accent mt-2 text-[38px] font-medium leading-none tracking-tight">Hassan Mirza</h1>
-        <div className="mt-3 flex items-center gap-2 text-[13px] text-[#6b7280]">
-          <span>currently —</span>
-          <div className="relative h-[20px] overflow-hidden min-w-[150px]">
-            <AnimatePresence mode="wait">
-              <motion.span
-                key={roles[currentRole]}
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                exit={{ y: -20, opacity: 0 }}
-                transition={{ duration: 0.4, ease: 'easeInOut' }}
-                className="absolute left-0 block whitespace-nowrap text-accent font-medium mt-[1px]"
-              >
-                {roles[currentRole]}
-              </motion.span>
-            </AnimatePresence>
-          </div>
-        </div>
-        <p className="mt-4 text-pretty text-[14px] leading-[1.65] text-[#a7adb8]">
-          I build simple, reliable software from complex ideas — clean APIs,
-          predictable systems, and interfaces that stay out of the way.
-        </p>
+
+        <RoleTicker currentRole={currentRole} className="mt-3" />
+
+        <Bio className="mt-4" />
+
         <div className="mt-5 flex flex-wrap gap-3 text-[13px]">
           {quickLinks.map((link) => {
             const Icon = link.icon
@@ -193,13 +193,13 @@ function Hero() {
       </div>
 
       {/* Toast Notification */}
-      <div 
+      <div
         className={`fixed bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-[#18181b]/80 backdrop-blur-md border border-[#2a303b] px-4 py-2.5 text-[13px] font-medium text-[#e8ebf0] shadow-[0_4px_12px_rgba(0,0,0,0.5),0_0_20px_rgba(217,137,115,0.1)] transition-all duration-300 z-[100] flex items-center gap-2.5 ${copied ? 'translate-y-0 scale-100 opacity-100' : 'translate-y-4 scale-95 opacity-0 pointer-events-none'}`}
       >
         <span className="flex h-4 w-4 items-center justify-center rounded-full bg-[#d98973]/20 text-[#d98973]">
           <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
         </span>
-        Copied to clipboard
+        v9mirza@proton.me copied
       </div>
     </section>
   )
